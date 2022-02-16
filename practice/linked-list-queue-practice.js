@@ -63,7 +63,11 @@ class SinglyLinkedList {
 
     findNthNode(n) {
         // Returns the node at the nth index from the head
-
+        let curr =this.head;
+        for(let i=0; i<n ; i++){
+            curr = curr.next;
+        }
+        return curr;
         // Write your hypothesis on the time complexity of this method here
     }
 
@@ -71,6 +75,17 @@ class SinglyLinkedList {
         // Returns the middle node
         // Implement this as a singly linked list then as a doubly linked list
             // How do the implementation for singly and doubly vary if at all?
+
+            if(this.listLength() %2 ===0){
+                let count = Math.ceil(this.listLength()/2);
+                return this.findNthNode(count-1);
+
+            }
+            else{
+                let count = Math.floor(this.listLength()/2);
+                return this.findNthNode(count);
+
+            }
 
         // Write your hypothesis on the time complexity of this method here
     }
@@ -87,6 +102,8 @@ class SinglyLinkedList {
         // Write your hypothesis on the time complexity of this method here
     }
 }
+
+
 
 class DoublyLinkedNode {
     constructor(val) {
