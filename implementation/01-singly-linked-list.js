@@ -12,9 +12,12 @@ class SinglyLinkedList {
         this.length = 0;
     }
 
-    addToHead(val) { 
-        // Add node of val to head of linked list
-
+    addToHead(val) {
+        const newNode = new SinglyLinkedNode(val);
+        newNode.next = this.head; //node
+        this.head = newNode; //list
+        this.length++;
+        return this;
         // Write your hypothesis on the time complexity of this method here
     }
 
@@ -52,14 +55,16 @@ class SinglyLinkedList {
     }
 
     peekAtHead() {
-        // Return value of head node
+        if(this.length>=1){
+            return this.head;
+        } else return undefined;
 
         // Write your hypothesis on the time complexity of this method here
     }
 
     print() {
         // Print out the linked list
-        
+
         // Write your hypothesis on the time complexity of this method here
     }
 }
