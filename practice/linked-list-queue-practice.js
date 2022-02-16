@@ -92,18 +92,49 @@ class SinglyLinkedList {
 
     reverse() {
         // Returns a new reversed version of the linked list
+        const revList = new SinglyLinkedList();
+        let arr = []
+        let curr = this.head;
+        while(curr){
+            arr.push(curr.value);
+            curr=curr.next
+        }
 
+        for(let i = arr.length-1;i>=0;i--){
+            revList.addToTail(arr[i])
+        }
+        return revList;
         // Write your hypothesis on the time complexity of this method here
     }
 
     reverseInPlace() {
         // Reverses the linked list in-place
+        if(!this.head) return;
+        let curr = this.head;
+        let next = curr.next;
+        let prev = null;
 
+        while(next){
+            next = curr.next;
+            curr.next = prev
+            prev = curr;
+            curr = next;
+        }
+        this.head = prev;
+        return this;
+        // let count = this.listLength();
+
+        // while(count>0){
+        //     count--;
+        //     let node = this.findNthNode(count)
+        //     console.log(node.value)
+        //     this.addToTail(node.value);
+        //     let currNode = this.findNthNode(count)
+        //     currNode = null;
+        // }
         // Write your hypothesis on the time complexity of this method here
     }
 }
-
-
 
 class DoublyLinkedNode {
     constructor(val) {
@@ -151,7 +182,18 @@ class DoublyLinkedList {
 
     reverseInPlace() {
         // Reverses the linked list in-place
+        let count = 0;
+        let curr = this.head;
+        while (curr) {
+            count++;
+            curr = curr.next
+        }
 
+        while (count > 0) {
+            count--;
+            this.addToTail(curr);
+            curr = curr.prev;
+        }
         // Write your hypothesis on the time complexity of this method here
     }
 }
