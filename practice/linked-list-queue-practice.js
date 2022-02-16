@@ -31,6 +31,13 @@ class SinglyLinkedList {
 
     listLength() {
         // Returns the length of the list
+        let count =0;
+        let curr = this.head;
+        while(curr){
+            count++;
+            curr = curr.next;
+        }
+        return count;
         // Implement in O(n) and in O(1) time complexity
     }
 
