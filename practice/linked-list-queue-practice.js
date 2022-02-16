@@ -43,12 +43,20 @@ class SinglyLinkedList {
 
     sumOfNodes() {
         // Returns the sum of the values of all the nodes
+        let sum = 0;
+        let curr = this.head;
+        while(curr){
+            sum+=curr.value;
+            curr= curr.next;
+        }
+        return sum;
 
         // Write your hypothesis on the time complexity of this method here
     }
 
     averageValue() {
         // Returns the average value of all the nodes
+        return this.sumOfNodes()/this.listLength();
 
         // Write your hypothesis on the time complexity of this method here
     }
