@@ -37,7 +37,7 @@ class SinglyLinkedList {
 
         let curr = this.head;
         while (curr.next) {
-            curr = current.next;
+            curr = curr.next;
         }
         curr.next = newNode;
         return this;
@@ -60,8 +60,21 @@ class SinglyLinkedList {
     }
 
     removeFromTail() {
-        // Remove node at tail
-
+        if(!this.head) return undefined;
+        let curr = this.head;
+        let prev;
+        while(curr.next){
+            prev = curr;
+            curr = curr.next;
+        }
+        if(!prev){
+            this.head=null;
+        } else{
+            prev.next = null;
+        // curr = null;
+        }
+        this.length--;
+        return curr;
         // Write your hypothesis on the time complexity of this method here
     }
 
