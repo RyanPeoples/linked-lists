@@ -17,14 +17,16 @@ class DoublyLinkedList {
     addToHead(val) {
         // There are bugs in this method! Fix them!!!
         // Write your hypothesis on the time complexity of this method here
-
+        //0(n)
         // Add node of val to head of linked list
-        let newNode = new DoublyLinkedNode(val);
+        const newNode = new DoublyLinkedNode(val);
 
-        if (this.length >= 0) {
-            this.head.previous = newNode;
+        if (this.length >= 1) {
+            this.head.prev = newNode;
             newNode.next = this.head;
+
             this.head = newNode;
+
         } else {
             this.head = newNode;
             this.tail = newNode;
@@ -59,7 +61,7 @@ class DoublyLinkedList {
 
     peekAtTail() {
         // Return value of tail node
-        
+
         // Write your hypothesis on the time complexity of this method here
     }
 }
