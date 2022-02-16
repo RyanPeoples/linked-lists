@@ -71,19 +71,26 @@ class DoublyLinkedList {
 
     removeFromTail() {
         // Remove node at tail
+        if(this.length < 1) return;
 
+        let val = this.tail.value;
+        this.tail = this.tail.prev;
+        this.length--;
+        return val;
         // Write your hypothesis on the time complexity of this method here
     }
 
     peekAtHead() {
         // Return value of head node
-
+        if(this.length <1) return;
+        return this.head.value;
         // Write your hypothesis on the time complexity of this method here
     }
 
     peekAtTail() {
         // Return value of tail node
-
+        if(this.length <1) return;
+        return this.tail.value;
         // Write your hypothesis on the time complexity of this method here
     }
 }
