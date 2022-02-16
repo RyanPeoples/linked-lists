@@ -79,16 +79,19 @@ class SinglyLinkedList {
     }
 
     peekAtHead() {
-        if(this.length>=1){
-            return this.head;
+        if(this.length>0){
+            return this.head.value;
         } else return undefined;
 
         // Write your hypothesis on the time complexity of this method here
     }
 
     print() {
-        // Print out the linked list
-
+        let curr = this.head;
+        while(curr){
+            console.log(curr.value)
+            curr = curr.next;
+        }
         // Write your hypothesis on the time complexity of this method here
     }
 }
