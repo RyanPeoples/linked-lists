@@ -17,7 +17,7 @@ class DoublyLinkedList {
     addToHead(val) {
         // There are bugs in this method! Fix them!!!
         // Write your hypothesis on the time complexity of this method here
-        //0(n)
+        //0(1)
         // Add node of val to head of linked list
         const newNode = new DoublyLinkedNode(val);
 
@@ -37,7 +37,19 @@ class DoublyLinkedList {
 
     addToTail(val) {
         // Add node of val to tail of linked list
+        const newNode = new DoublyLinkedNode(val);
 
+        //non empty list
+        if(this.length >= 1){
+          this.tail.next = newNode;
+          newNode.prev = this.tail;
+          this.tail = newNode;
+          
+        } else { //empty list
+          this.head = newNode;
+          this.tail = newNode;
+        }
+        this.length++;
         // Write your hypothesis on the time complexity of this method here
     }
 
